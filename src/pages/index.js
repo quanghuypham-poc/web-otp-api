@@ -8,7 +8,7 @@ export default function Home() {
 
   const handleChange = (event) => {
     setOtp(event.target.value);
-    if (event.target.value.length === 6) {
+    if (inputRef.current.value.length === 6) {
       setText("submit");
     }
   };
