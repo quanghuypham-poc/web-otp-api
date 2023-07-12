@@ -17,7 +17,7 @@ export default function Home() {
     if ("OTPCredential" in window) {
       const ac = new AbortController();
 
-      setTimeout(() => ac.abort(), 2 * 60 * 1000);
+      // setTimeout(() => ac.abort(), 2 * 60 * 1000);
 
       navigator.credentials
         .get({
@@ -26,7 +26,7 @@ export default function Home() {
         })
         .then((otp) => {
           setOtp(otp);
-          ac.abort();
+          // ac.abort();
         });
     }
   }, []);
