@@ -9,7 +9,7 @@ export default function Home() {
   const handleChange = (event) => {
     setOtp(event.target.value);
     if (inputRef.current.value.length === 6) {
-      setText("submit");
+      setText("ios submit");
     }
   };
 
@@ -26,7 +26,7 @@ export default function Home() {
         })
         .then((otp) => {
           setOtp(otp.code);
-          setText("submit");
+          setText("android submit");
           ac.abort();
         });
     }
