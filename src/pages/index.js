@@ -26,6 +26,7 @@ export default function Home() {
         })
         .then((otp) => {
           setOtp(otp.code);
+          setText("submit");
           ac.abort();
         });
     }
