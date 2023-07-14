@@ -15,21 +15,20 @@ export default function Home() {
     }
   };
 
-  const handleSubmit = () => {
-    setSubmit("submitted");
-  };
-
   const handleKeyDown = (event) => {
     setKeycode(event.keyCode);
   };
 
   const handleBlur = () => {
-    setSubmit("blur");
+    // setSubmit("blur");
   };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
+      console.log(document.getElementById("otp-input"));
+
       document.getElementById("otp-input")?.addEventListener("focusout", () => {
+        console.log("focusout");
         setSubmit("focusout");
       });
     }
@@ -55,7 +54,7 @@ export default function Home() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <h1>Web Otp Example Code</h1>
-      <form onSubmit={handleSubmit} noValidate>
+      <form>
         <input
           id="otp-input"
           ref={inputRef}
