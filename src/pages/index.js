@@ -28,12 +28,12 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if ("OTPCredential" in window) {
-      document.getElementById("input").addEventListener("focusout", () => {
-        setOtp(otp);
-        setSubmit("focusout");
-      });
+    document.getElementById("input").addEventListener("focusout", () => {
+      setOtp(otp);
+      setSubmit("focusout");
+    });
 
+    if ("OTPCredential" in window) {
       const ac = new AbortController();
 
       setTimeout(() => ac.abort(), 2 * 60 * 1000);
