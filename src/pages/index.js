@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 export default function Home() {
   const [otp, setOtp] = useState("");
   const [text, setText] = useState("");
+  const [submit, setSubmit] = useState("");
 
   const inputRef = useRef(null);
 
@@ -11,6 +12,10 @@ export default function Home() {
     if (inputRef.current.value.length === 6) {
       setText("ios submit");
     }
+  };
+
+  const handleSubmit = () => {
+    setSubmit("submitted");
   };
 
   useEffect(() => {
@@ -35,15 +40,18 @@ export default function Home() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <h1>Web Otp Example Code</h1>
-      <input
-        ref={inputRef}
-        inputMode="numeric"
-        value={otp}
-        autoComplete="one-time-code"
-        onChange={handleChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          ref={inputRef}
+          inputMode="numeric"
+          value={otp}
+          autoComplete="one-time-code"
+          onChange={handleChange}
+        />
+      </form>
       <span>OTP: {otp}</span>
       <span>Text: {text}</span>
+      <span>Submit: {submit}</span>
     </div>
   );
 }
