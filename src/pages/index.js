@@ -15,25 +15,13 @@ export default function Home() {
     }
   };
 
-  const handleKeyDown = (event) => {
-    setKeycode(event.keyCode);
-  };
-
   const handleBlur = () => {
-    // setSubmit("blur");
+    setSubmit("blur");
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      document.addEventListener("focusout", () => {
-        setSubmit("focusout");
-      });
-    }
-
     if ("OTPCredential" in window) {
       const ac = new AbortController();
-
-      setTimeout(() => ac.abort(), 2 * 60 * 1000);
 
       navigator.credentials
         .get({
@@ -59,7 +47,7 @@ export default function Home() {
           value={otp}
           autoComplete="one-time-code"
           onChange={handleChange}
-          enterKeyHint="done"
+          onBlur={handleBlur}
         />
       </form>
       <span>OTP: {otp}</span>
