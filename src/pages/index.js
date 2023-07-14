@@ -23,6 +23,10 @@ export default function Home() {
     setKeycode(event.keyCode);
   };
 
+  const handleBlur = () => {
+    setSubmit("blur");
+  };
+
   useEffect(() => {
     if ("OTPCredential" in window) {
       const ac = new AbortController();
@@ -53,6 +57,7 @@ export default function Home() {
           autoComplete="one-time-code"
           onChange={handleChange}
           onKeyDown={handleKeyDown}
+          onBlur={handleBlur}
         />
       </form>
       <span>OTP: {otp}</span>
