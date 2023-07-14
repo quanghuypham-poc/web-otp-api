@@ -25,10 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      console.log(document.getElementById("otp-input"));
-
       document.addEventListener("focusout", () => {
-        console.log("focusout");
         setSubmit("focusout");
       });
     }
@@ -62,14 +59,12 @@ export default function Home() {
           value={otp}
           autoComplete="one-time-code"
           onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          onBlur={handleBlur}
+          enterKeyHint="done"
         />
       </form>
       <span>OTP: {otp}</span>
       <span>Text: {text}</span>
       <span>Submit: {submit}</span>
-      <span>Keycode: {keycode}</span>
     </div>
   );
 }
