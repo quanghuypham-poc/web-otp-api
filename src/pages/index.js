@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      document.getElementById("input").addEventListener("focusout", () => {
+      document.getElementById("input")?.addEventListener("focusout", () => {
         if (otp) setOtp(otp);
         setSubmit("focusout");
       });
