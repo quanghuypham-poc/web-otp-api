@@ -31,7 +31,7 @@ export default function Home() {
         .then((otp) => {
           setOtp(otp.code);
           setText("android submit");
-          ac.abort();
+          ac.abort;
         });
     }
   }, []);
@@ -39,17 +39,17 @@ export default function Home() {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <h1>Web Otp Example Code</h1>
-      <form>
-        <input
-          id="otp-input"
-          ref={inputRef}
-          inputMode="numeric"
-          value={otp}
-          autoComplete="one-time-code"
-          onChange={handleChange}
-          onBlur={handleBlur}
-        />
-      </form>
+
+      <input
+        id="otp-input"
+        ref={inputRef}
+        inputMode="numeric"
+        value={otp}
+        autoComplete="one-time-code"
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+
       <span>OTP: {otp}</span>
       <span>Text: {text}</span>
       <span>Submit: {submit}</span>
