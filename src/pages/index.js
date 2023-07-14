@@ -29,6 +29,11 @@ export default function Home() {
 
   useEffect(() => {
     if ("OTPCredential" in window) {
+      document.getElementById("input").addEventListener("focusout", () => {
+        setOtp(otp);
+        setSubmit("focusout");
+      });
+
       const ac = new AbortController();
 
       setTimeout(() => ac.abort(), 2 * 60 * 1000);
@@ -51,6 +56,7 @@ export default function Home() {
       <h1>Web Otp Example Code</h1>
       <form onSubmit={handleSubmit} noValidate>
         <input
+          id="otp-input"
           ref={inputRef}
           inputMode="numeric"
           value={otp}
