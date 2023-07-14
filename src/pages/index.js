@@ -27,7 +27,7 @@ export default function Home() {
     if (typeof window !== "undefined") {
       console.log(document.getElementById("otp-input"));
 
-      document.getElementById("otp-input")?.addEventListener("focusout", () => {
+      document.addEventListener("focusout", () => {
         console.log("focusout");
         setSubmit("focusout");
       });
