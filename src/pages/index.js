@@ -2,9 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [otp, setOtp] = useState("");
-  const [text, setText] = useState("");
-  const [submit, setSubmit] = useState("");
-  const [keycode, setKeycode] = useState("");
 
   const inputRef = useRef(null);
 
@@ -20,11 +17,6 @@ export default function Home() {
   };
 
   useEffect(() => {
-    navigator.clipboard.readText().then((val) => {
-      console.log("val", val);
-      if (val) setOtp(val);
-    });
-
     if ("OTPCredential" in window) {
       const ac = new AbortController();
 
@@ -59,8 +51,6 @@ export default function Home() {
       />
 
       <span>OTP: {otp}</span>
-      <span>Text: {text}</span>
-      <span>Submit: {submit}</span>
     </div>
   );
 }
