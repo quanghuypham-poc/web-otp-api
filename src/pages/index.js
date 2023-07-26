@@ -14,6 +14,7 @@ export default function Home() {
     const newValue = value.slice(-OTP_CODE_LENGTH);
     setOtp(newValue);
 
+    console.log("value ref", inputRef.current.value);
     if (inputRef.current.value.length === OTP_CODE_LENGTH) {
       setText("submit");
     }
