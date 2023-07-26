@@ -7,13 +7,14 @@ export default function Home() {
 
   const handleChange = (event) => {
     event.preventDefault();
-    console.log("change", event.data);
+    console.log("change event.data", event.data);
     setOtp(event.target.value);
   };
 
   const handleInput = (event) => {
-    event.preventDefault();
     console.log("input", event.data);
+    event.preventDefault();
+    event.target.value = event.data;
   };
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function Home() {
         inputMode="numeric"
         value={otp}
         autoComplete="one-time-code"
-        onChange={handleChange}
+        // onChange={handleChange}
         onInput={handleInput}
         maxLength={6}
       />
