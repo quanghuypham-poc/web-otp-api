@@ -20,6 +20,10 @@ export default function Home() {
   };
 
   useEffect(() => {
+    navigator.clipboard.readText().then((val) => {
+      if (val) setOtp(val);
+    });
+
     if ("OTPCredential" in window) {
       const ac = new AbortController();
 
@@ -48,6 +52,7 @@ export default function Home() {
         autoComplete="one-time-code"
         onChange={handleChange}
         onBlur={handleBlur}
+        enterKeyHint
       />
 
       <span>OTP: {otp}</span>
