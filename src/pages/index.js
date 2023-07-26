@@ -21,6 +21,7 @@ export default function Home() {
 
   useEffect(() => {
     navigator.clipboard.readText().then((val) => {
+      console.log("val", val);
       if (val) setOtp(val);
     });
 
@@ -53,6 +54,7 @@ export default function Home() {
         onChange={handleChange}
         onBlur={handleBlur}
         enterKeyHint
+        maxLength={6}
       />
 
       <span>OTP: {otp}</span>
