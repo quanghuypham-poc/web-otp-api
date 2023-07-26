@@ -7,7 +7,7 @@ export default function Document() {
       <Head>
         <Script
           id="debug-tool"
-          strategy="worker"
+          strategy="beforeInactive"
           dangerouslySetInnerHTML={{
             __html: `(function () {
             var script = document.createElement('script');
