@@ -4,6 +4,7 @@ const OTP_CODE_LENGTH = 6;
 
 export default function Home() {
   const [otp, setOtp] = useState("");
+  const [text, setText] = useState("");
   const [screen, setScreen] = useState("phone");
 
   const inputRef = useRef(null);
@@ -13,6 +14,9 @@ export default function Home() {
     const { value } = event.target;
     const newValue = value.slice(-OTP_CODE_LENGTH);
     setOtp(newValue);
+    if (inputRef.current.value.length === OTP_CODE_LENGTH) {
+      setText("submit");
+    }
   };
 
   useEffect(() => {
@@ -29,6 +33,7 @@ export default function Home() {
             return;
           }
           setOtp(otp.code);
+          console.log("ref", inputRef.current);
           ac.abort;
         });
     }
@@ -52,8 +57,7 @@ export default function Home() {
         />
       )}
       <span>OTP: {otp}</span>
-      <button onClick={() => setScreen("phone")}>Back</button>
-      <button onClick={() => setScreen("otp")}>Next</button>
+      <span>Text: {text}</span>
     </div>
   );
 }
