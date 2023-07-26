@@ -5,19 +5,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <Script
-          id="debug-tool"
-          strategy="beforeInactive"
-          dangerouslySetInnerHTML={{
-            __html: `(function () {
-            var script = document.createElement('script');
-            script.src="https://cdn.jsdelivr.net/npm/eruda";
-            document.body.append(script);
-            script.onload = function () { eruda.init();
-            }
-           })();`,
-          }}
-        />
+        <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+        <script>eruda.init();</script>
       </Head>
       <body>
         <Main />

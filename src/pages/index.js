@@ -6,14 +6,14 @@ export default function Home() {
   const inputRef = useRef(null);
 
   const handleChange = (event) => {
+    event.preventDefault();
+    console.log("change", event.data);
     setOtp(event.target.value);
-    if (inputRef.current.value.length === 6) {
-      setText("ios submit");
-    }
   };
 
-  const handleBlur = () => {
-    setSubmit("blur");
+  const handleInput = (event) => {
+    event.preventDefault();
+    console.log("input", event.data);
   };
 
   useEffect(() => {
@@ -27,7 +27,6 @@ export default function Home() {
         })
         .then((otp) => {
           setOtp(otp.code);
-          setText("android submit");
           ac.abort;
         });
     }
@@ -44,9 +43,7 @@ export default function Home() {
         value={otp}
         autoComplete="one-time-code"
         onChange={handleChange}
-        onBlur={handleBlur}
-        onInput={(event) => setOtp(event.target.value)}
-        enterKeyHint
+        onInput={handleInput}
         maxLength={6}
       />
 
