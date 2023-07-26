@@ -53,6 +53,7 @@ export default function Home() {
         autoComplete="one-time-code"
         onChange={handleChange}
         onBlur={handleBlur}
+        onInput={(event) => setOtp(event.target.value)}
         enterKeyHint
         maxLength={6}
       />
