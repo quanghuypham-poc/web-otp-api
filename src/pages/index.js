@@ -12,9 +12,11 @@ export default function Home() {
   };
 
   const handleInput = (event) => {
-    console.log("input", event.data);
+    console.log("event", event);
     event.preventDefault();
     event.target.value = event.data;
+    console.log("input", event.data);
+    setOtp(event.target.value);
   };
 
   useEffect(() => {
@@ -42,9 +44,8 @@ export default function Home() {
         ref={inputRef}
         inputMode="numeric"
         value={otp}
-        autoComplete="one-time-code"
-        // onChange={handleChange}
         onInput={handleInput}
+        autoComplete="one-time-code"
         maxLength={6}
       />
 
